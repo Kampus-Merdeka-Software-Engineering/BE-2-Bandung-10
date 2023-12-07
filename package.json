@@ -1,0 +1,23 @@
+{
+  "name": "be-2-bandung-10",
+  "version": "1.0.0",
+  "description": "1. inisiasi project npm dengan menggunakan command `npm init -y`\r 2. update `package.json` dengan menambahkan scripts seperti",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "prisma": "^5.6.0"
+  }
+}

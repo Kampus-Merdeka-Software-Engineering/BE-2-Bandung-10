@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+//Add Table or Model here
+
+model Booking {
+  id        Int      @id @default(autoincrement())
+  fullname  String
+  email     String
+  phone     String
+  rooms_id  Int?
+  check_in  DateTime @db.Date
+  check_out DateTime @db.Date
+  adults_amount Int
+  childs_amount Int
+  Rooms     Rooms?   @relation(fields: [rooms_id], references: [id])
+  // Adults    Adults?  @relation(fields: [adults_id], references: [id])
+  // Childs    Childs?  @relation(fields: [childs_id], references: [id])
+}
+
+model Rooms {
+  id      Int       @id @default(autoincrement())
+  rooms   String
+  booking Booking[]
+}
+
+// model Adults {
+//   id      Int       @id @default(autoincrement())
+//   amount  String
+//   booking Booking[]
+// }
+
+// model Childs {
+//   id      Int       @id @default(autoincrement())
+//   amount  String
+//   booking Booking[]
+// }
