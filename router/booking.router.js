@@ -33,8 +33,8 @@ bookingRouter.post("/", async (req, res) => {
             email, 
             phone, 
             rooms_id, 
-            check_in, 
-            check_out, 
+            check_in = new Date(Date.parse(check_in)), 
+            check_out = new Date(Date.parse(check_out)),
             adults_amount,
             childs_amount } = req.body;
     // if (!rooms) res.status(404).json({
@@ -49,8 +49,8 @@ bookingRouter.post("/", async (req, res) => {
             email, 
             phone, 
             rooms_id: parseInt(rooms_id), 
-            check_in, 
-            check_out, 
+            check_in : new Date(Date.parse(check_in)), 
+            check_out : new Date(Date.parse(check_out)),
             adults_amount: parseInt(adults_amount),
             childs_amount: parseInt(childs_amount),
         },

@@ -14,15 +14,17 @@ datasource db {
 
 model Booking {
   id        Int      @id @default(autoincrement())
-  fullname  String
-  email     String
-  phone     String
+  fullname  String  @db.VarChar(50)
+  email     String  @db.VarChar(50)
+  phone     String  @db.VarChar(50)
   rooms_id  Int?
   check_in  DateTime @db.Date
   check_out DateTime @db.Date
   adults_amount Int
   childs_amount Int
   Rooms     Rooms?   @relation(fields: [rooms_id], references: [id])
+
+  @@map("booking")
   // Adults    Adults?  @relation(fields: [adults_id], references: [id])
   // Childs    Childs?  @relation(fields: [childs_id], references: [id])
 }

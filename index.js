@@ -18,8 +18,10 @@ app.get("/", async (req, res) => {
 	res.send("here is the response");
 });
 
-// Import Router Rooms & Booking
+// Import Router Booking
 app.use("/form", bookingRouter);
+
+// import Router Rooms
 app.use("/rooms", roomsRouter);
 
 /*
