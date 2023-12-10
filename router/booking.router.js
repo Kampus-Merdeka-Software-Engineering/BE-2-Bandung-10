@@ -1,15 +1,7 @@
 const express = require('express');
 const { prisma } = require('../config/prisma');
-// const { getBooking, postBooking } = require('../controller/booking.controller');
 const bookingRouter = express.Router();
-
-/*
-// Booking Routes
-routerB.get('/', getBooking);
-routerB.get('/', getBooking);
-routerB.post('/', postBooking);
-module.exports = routerB;
-*/
+// const { getBooking, postBooking } = require('../controller/booking.controller');
 
 // GET all booking
 bookingRouter.get("/", async (req, res) => {
@@ -25,6 +17,24 @@ bookingRouter.get("/", async (req, res) => {
 		message: "Successful in retrieving room booking data",
 		data: booking,
 	});
+});
+
+// GET all booking by id
+bookingRouter.get("/:id", async (req, res) => {
+	// const { id } = req.params;
+	const booking = await prisma.booking.findMany({
+        include: {
+            Rooms: true,
+        },
+		where: {
+			id: parseInt(req.params.id)
+		},
+	});
+	// if (!rooms) res.status(404).send("Rooms not found");
+	if (!booking) res.status(404).json({
+		message: "Rooms Not Found",
+	});
+	res.status(200).send(rooms);
 });
 
 // POST Booking
@@ -62,3 +72,11 @@ bookingRouter.post("/", async (req, res) => {
 });
 
 module.exports = { bookingRouter };
+
+/*
+// Booking Routes
+routerB.get('/', getBooking);
+routerB.get('/', getBooking);
+routerB.post('/', postBooking);
+module.exports = routerB;
+*/

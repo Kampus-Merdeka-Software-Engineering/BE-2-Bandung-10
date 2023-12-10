@@ -1,13 +1,7 @@
 const express = require('express');
 const { prisma } = require('../config/prisma');
-// const { getRooms } = require('../controller/rooms.controller');
 const roomsRouter = express.Router();
-
-/*
-// Rooms Routes
-routerR.get('/', getRooms);
-module.exports = routerR;
-*/
+// const { getRooms } = require('../controller/rooms.controller');
 
 //Rooms Router
 
@@ -38,12 +32,6 @@ roomsRouter.get("/:id", async (req, res) => {
 	res.status(200).send(rooms);
 });
 
-module.exports = { roomsRouter };
-
-/*
-// buat belajar
-// Setelah melakukan import router hapus "/(nama yang kalian buat)""
-// POST Rooms
 roomsRouter.post("/rooms", async (req, res) => {
     const { rooms } = req.body;
     // if (!rooms) res.status(404).json({
@@ -84,4 +72,16 @@ roomsRouter.delete("/rooms/:id", async (req, res) => {
         message: `Rooms with id: ${id} successfully deleted`,
     });
 });
+
+module.exports = { roomsRouter };
+
+
+// buat belajar
+// Setelah melakukan import router hapus "/(nama yang kalian buat)""
+// POST Rooms
+/*
+// Rooms Routes
+routerR.get('/', getRooms);
+module.exports = routerR;
 */
+

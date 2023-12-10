@@ -25,6 +25,7 @@ model Booking {
   Rooms     Rooms?   @relation(fields: [rooms_id], references: [id])
 
   @@map("booking")
+  @@index([rooms_id], map: "Booking_rooms_id_fkey")
   // Adults    Adults?  @relation(fields: [adults_id], references: [id])
   // Childs    Childs?  @relation(fields: [childs_id], references: [id])
 }
