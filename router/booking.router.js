@@ -1,3 +1,5 @@
+// BOOKING ROUTER
+// GET > GET ALL > POST 
 const express = require('express');
 const { prisma } = require('../config/prisma');
 const bookingRouter = express.Router();

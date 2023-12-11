@@ -1,3 +1,6 @@
+// ROOMS ROUTER
+// GET > PUT > DELETE
+
 const express = require('express');
 const { prisma } = require('../config/prisma');
 const roomsRouter = express.Router();
